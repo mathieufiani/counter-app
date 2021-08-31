@@ -20,13 +20,22 @@ class Counter extends Component {
       </ul>
     );
   }
+
+  handleIncrements() {
+    console.log("Incremented", this);
+  }
   render() {
     return (
       <React.Fragment>
         <span style={this.styles} className={this.changeColorCountBtn()}>
           {this.formatCount()}
         </span>
-        <button className="btn btn-secondary btn-sm">Increment</button>
+        <button
+          onClick={this.handleIncrements()}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
         {this.state.tags.length === 0 && "please add a tag !"}
         {this.renderTags()}
       </React.Fragment>
