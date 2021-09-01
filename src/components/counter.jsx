@@ -20,10 +20,10 @@ class Counter extends Component {
       </ul>
     );
   }
-
-  handleIncrements() {
-    console.log("Incremented", this);
-  }
+  handleIncrements = (product) => {
+    console.log(product);
+    this.setState({ count: this.state.count + 1 });
+  };
   render() {
     return (
       <React.Fragment>
@@ -31,7 +31,7 @@ class Counter extends Component {
           {this.formatCount()}
         </span>
         <button
-          onClick={this.handleIncrements()}
+          onClick={() => this.handleIncrements({ id: 1 })}
           className="btn btn-secondary btn-sm"
         >
           Increment
