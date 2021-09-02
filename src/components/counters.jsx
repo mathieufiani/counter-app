@@ -16,9 +16,14 @@ class Counters extends Component {
     this.setState({ counters });
   };
   render() {
-    console.log("props", this.props);
     return (
       <React.Fragment>
+        <button
+          onClick={this.handleReset}
+          className="btn btn-primary btn-sm m-2"
+        >
+          Reset
+        </button>
         {this.state.counters.map((counter) => (
           <Counter
             key={counter.id}
