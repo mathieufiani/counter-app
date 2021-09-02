@@ -10,12 +10,12 @@ class Counter extends Component {
   };
 
   handleIncrements = (product) => {
-    console.log(product);
-    this.setState({ count: this.state.value + 1 });
+    this.setState({ value: this.state.value + 1 });
   };
   render() {
     return (
       <React.Fragment>
+        {this.props.children}
         <span style={this.styles} className={this.changeColorCountBtn()}>
           {this.formatCount()}
         </span>
@@ -35,8 +35,8 @@ class Counter extends Component {
   }
 
   formatCount() {
-    const { value: count } = this.state;
-    return count === 0 ? "zero" : count;
+    const { value } = this.state;
+    return value === 0 ? "zero" : value;
   }
 }
 
