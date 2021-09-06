@@ -7,6 +7,7 @@ class Counter extends Component {
   };
 
   render() {
+    console.log("counter - Rendered");
     return (
       <div>
         <span style={this.styles} className={this.changeColorCountBtn()}>
