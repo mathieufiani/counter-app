@@ -6,25 +6,42 @@ class Counter extends Component {
     fontWeight: "bold",
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.counter.value !== this.props.counter.value) {
+    }
+  }
+  componentWillUnmount() {
+    console.log("counter - Unmount");
+  }
   render() {
     console.log("counter - Rendered");
     return (
-      <div>
-        <span style={this.styles} className={this.changeColorCountBtn()}>
-          {this.formatCount()}
-        </span>
-        <button
-          onClick={() => this.props.onIncrement(this.props.counter)}
-          className="btn btn-secondary btn-sm"
-        >
-          Increment
-        </button>
-        <button
-          onClick={() => this.props.onDelete(this.props.counter.id)}
-          className="btn btn-danger btn-sm m-2"
-        >
-          Delete
-        </button>
+      <div className="container row">
+        <div className="col col-sm p-0">
+          <span style={this.styles} className={this.changeColorCountBtn()}>
+            {this.formatCount()}
+          </span>
+        </div>
+        <div className="col col-sm p-0">
+          <button
+            onClick={() => this.props.onIncrement(this.props.counter)}
+            className="btn btn-secondary btn-sm"
+          >
+            +
+          </button>
+          <button
+            className="btn btn-secondary btn-sm m-2"
+            onClick={() => this.props.onDecrement(this.props.counter)}
+          >
+            -
+          </button>
+          <button
+            onClick={() => this.props.onDelete(this.props.counter.id)}
+            className="btn btn-danger btn-sm m-2"
+          >
+            Delete
+          </button>
+        </div>
       </div>
     );
   }
